@@ -12,7 +12,7 @@
 		"build:res": "node copy_res.js",
 		"build:mod": "node install_modules.js",
 		"build:patch": "node patch.js",
-		"build": "npm run build:css & npm run build:html & npm run build:js & npm run build:res & npm run build:mod & npm run build:patch",
+		"build": "npm run build:css && npm run build:html && npm run build:js && npm run build:res && npm run build:mod && npm run build:patch",
 		"clean": "node clean.js"
 	},
 	"repository": "https://github.com/KaguaKurusu/lupusiro",
