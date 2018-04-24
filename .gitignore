@@ -62,3 +62,6 @@ tmp/
 
 # dist directory
 dist/
+
+# macOS metadata file
+.DS_Store
