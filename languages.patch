@@ -1,0 +1,629 @@
+@@ -109,15 +109,15 @@
+  of 
+-5/15/16
++3/17/18
+ ) al
+@@ -248,62 +248,57 @@
+ ': '
+-Automatic
++%E8%A8%80%E8%AA%9E%E3%82%92%E6%A4%9C%E5%87%BA%E3%81%99%E3%82%8B
+ ',%0A    '
+-af
++is
+ ': '
+-Afrikaans
++%E3%82%A2%E3%82%A4%E3%82%B9%E3%83%A9%E3%83%B3%E3%83%89%E8%AA%9E
+ ',%0A    '
+-sq
++ga
+ ': '
+-Albanian
++%E3%82%A2%E3%82%A4%E3%83%AB%E3%83%A9%E3%83%B3%E3%83%89%E8%AA%9E
+ ',%0A 
+@@ -306,20 +306,22 @@
+   'a
+-m
++z
+ ': '
+-Amharic
++%E3%82%A2%E3%82%BC%E3%83%AB%E3%83%90%E3%82%A4%E3%82%B8%E3%83%A3%E3%83%B3%E8%AA%9E
+ ',%0A 
+@@ -329,41 +329,40 @@
+   'a
+-r
++f
+ ': '
+-Arabic
++%E3%82%A2%E3%83%95%E3%83%AA%E3%82%AB%E3%83%BC%E3%83%B3%E3%82%B9%E8%AA%9E
+ ',%0A    '
+-hy
++am
+ ': '
+-Armenian
++%E3%82%A2%E3%83%A0%E3%83%8F%E3%83%A9%E8%AA%9E
+ ',%0A 
+@@ -370,154 +370,136 @@
+   'a
+-z
++r
+ ': '
+-Azerbaijani
++%E3%82%A2%E3%83%A9%E3%83%93%E3%82%A2%E8%AA%9E
+ ',%0A    '
+-eu
++sq
+ ': '
+-Basque
++%E3%82%A2%E3%83%AB%E3%83%90%E3%83%8B%E3%82%A2%E8%AA%9E
+ ',%0A    '
+-be
++hy
+ ': '
+-Belarusian
++%E3%82%A2%E3%83%AB%E3%83%A1%E3%83%8B%E3%82%A2%E8%AA%9E
+ ',%0A    '
+-bn
++it
+ ': '
+-Bengali
++%E3%82%A4%E3%82%BF%E3%83%AA%E3%82%A2%E8%AA%9E
+ ',%0A    '
+-bs
++yi
+ ': '
+-Bosnian
++%E3%82%A4%E3%83%87%E3%82%A3%E3%83%83%E3%82%B7%E3%83%A5%E8%AA%9E
+ ',%0A    '
+-b
++i
+ g': '
+-Bulgarian
++%E3%82%A4%E3%83%9C%E8%AA%9E
+ ',%0A    '
+-ca
++id
+ ': '
+-Catalan
++%E3%82%A4%E3%83%B3%E3%83%89%E3%83%8D%E3%82%B7%E3%82%A2%E8%AA%9E
+ ',%0A 
+@@ -507,260 +507,214 @@
+   'c
+-eb
++y
+ ': '
+-Cebuano
++%E3%82%A6%E3%82%A7%E3%83%BC%E3%83%AB%E3%82%BA%E8%AA%9E
+ ',%0A    '
+-ny
++uk
+ ': '
+-Chichewa',%0A    'zh-cn': 'Chinese Simplified',%0A    'zh-tw': 'Chinese Traditional
++%E3%82%A6%E3%82%AF%E3%83%A9%E3%82%A4%E3%83%8A%E8%AA%9E',%0A    'uz': '%E3%82%A6%E3%82%BA%E3%83%99%E3%82%AF%E8%AA%9E',%0A    'ur': '%E3%82%A6%E3%83%AB%E3%83%89%E3%82%A5%E8%AA%9E
+ ',%0A    '
+-co
++et
+ ': '
+-Corsican
++%E3%82%A8%E3%82%B9%E3%83%88%E3%83%8B%E3%82%A2%E8%AA%9E
+ ',%0A    '
+-hr
++eo
+ ': '
+-Croatian
++%E3%82%A8%E3%82%B9%E3%83%9A%E3%83%A9%E3%83%B3%E3%83%88%E8%AA%9E
+ ',%0A    '
+-cs
++nl
+ ': '
+-Czech
++%E3%82%AA%E3%83%A9%E3%83%B3%E3%83%80%E8%AA%9E
+ ',%0A    '
+-da
++kk
+ ': '
+-Danish
++%E3%82%AB%E3%82%B6%E3%83%95%E8%AA%9E
+ ',%0A    '
+-nl
++ca
+ ': '
+-Dutch
++%E3%82%AB%E3%82%BF%E3%83%AB%E3%83%BC%E3%83%8B%E3%83%A3%E8%AA%9E
+ ',%0A    '
+-en
++gl
+ ': '
+-English
++%E3%82%AC%E3%83%AA%E3%82%B7%E3%82%A2%E8%AA%9E
+ ',%0A    '
+-eo
++kn
+ ': '
+-Esperanto
++%E3%82%AB%E3%83%B3%E3%83%8A%E3%83%80%E8%AA%9E
+ ',%0A 
+@@ -722,1017 +722,898 @@
+   'e
+-t
++l
+ ': '
+-Estonian
++%E3%82%AE%E3%83%AA%E3%82%B7%E3%83%A3%E8%AA%9E
+ ',%0A    '
+-tl
++ky
+ ': '
+-Filipino
++%E3%82%AD%E3%83%AB%E3%82%AE%E3%82%B9%E8%AA%9E
+ ',%0A    '
+-fi
++gu
+ ': '
+-Finnish
++%E3%82%B0%E3%82%B8%E3%83%A3%E3%83%A9%E3%83%88%E8%AA%9E
+ ',%0A    '
+-fr
++km
+ ': '
+-French
++%E3%82%AF%E3%83%A1%E3%83%BC%E3%83%AB%E8%AA%9E
+ ',%0A    '
+-fy
++ku
+ ': '
+-Frisian
++%E3%82%AF%E3%83%AB%E3%83%89%E8%AA%9E
+ ',%0A    '
+-gl
++hr
+ ': '
+-Galician
++%E3%82%AF%E3%83%AD%E3%82%A2%E3%83%81%E3%82%A2%E8%AA%9E
+ ',%0A    '
+-ka
++xh
+ ': '
+-Georgian
++%E3%82%B3%E3%83%BC%E3%82%B5%E8%AA%9E
+ ',%0A    '
+-de
++co
+ ': '
+-German
++%E3%82%B3%E3%83%AB%E3%82%B7%E3%82%AB%E8%AA%9E
+ ',%0A    '
+-el
++sm
+ ': '
+-Greek
++%E3%82%B5%E3%83%A2%E3%82%A2%E8%AA%9E
+ ',%0A    '
+-gu
++jw
+ ': '
+-Gujarati
++%E3%82%B8%E3%83%A3%E3%83%AF%E8%AA%9E
+ ',%0A    '
+-ht
++ka
+ ': '
+-Haitian Creole
++%E3%82%B8%E3%83%A7%E3%83%BC%E3%82%B8%E3%82%A2(%E3%82%B0%E3%83%AB%E3%82%B8%E3%82%A2)%E8%AA%9E
+ ',%0A    '
+-ha
++sn
+ ': '
+-Hausa
++%E3%82%B7%E3%83%A7%E3%83%8A%E8%AA%9E
+ ',%0A    '
+-haw
++sd
+ ': '
+-Hawaiian
++%E3%82%B7%E3%83%B3%E3%83%89%E8%AA%9E
+ ',%0A    '
++s
+ i
+-w
+ ': '
+-Hebrew
++%E3%82%B7%E3%83%B3%E3%83%8F%E3%83%A9%E8%AA%9E
+ ',%0A    '
+-hi
++sv
+ ': '
+-Hindi
++%E3%82%B9%E3%82%A6%E3%82%A7%E3%83%BC%E3%83%87%E3%83%B3%E8%AA%9E
+ ',%0A    '
+-hmn
++zu
+ ': '
+-Hmong
++%E3%82%BA%E3%83%BC%E3%83%AB%E3%83%BC%E8%AA%9E
+ ',%0A    '
+-hu
++gd
+ ': '
+-Hungarian
++%E3%82%B9%E3%82%B3%E3%83%83%E3%83%88%E3%83%A9%E3%83%B3%E3%83%89 %E3%82%B2%E3%83%BC%E3%83%AB%E8%AA%9E
+ ',%0A    '
+-i
++e
+ s': '
+-Icelandic
++%E3%82%B9%E3%83%9A%E3%82%A4%E3%83%B3%E8%AA%9E
+ ',%0A    '
+-ig
++sk
+ ': '
+-Igbo
++%E3%82%B9%E3%83%AD%E3%83%90%E3%82%AD%E3%82%A2%E8%AA%9E
+ ',%0A    '
+-id
++sl
+ ': '
+-Indonesian
++%E3%82%B9%E3%83%AD%E3%83%99%E3%82%AD%E3%82%A2%E8%AA%9E
+ ',%0A    '
+-ga
++sw
+ ': '
+-Irish
++%E3%82%B9%E3%83%AF%E3%83%92%E3%83%AA%E8%AA%9E
+ ',%0A    '
+-it
++su
+ ': '
+-Italian
++%E3%82%B9%E3%83%B3%E3%83%80%E8%AA%9E
+ ',%0A    '
+-ja
++ceb
+ ': '
+-Japanese
++%E3%82%BB%E3%83%96%E3%82%A2%E3%83%8E%E8%AA%9E
+ ',%0A    '
+-jw
++sr
+ ': '
+-Javanese
++%E3%82%BB%E3%83%AB%E3%83%93%E3%82%A2%E8%AA%9E
+ ',%0A    '
+-kn
++st
+ ': '
+-Kannada
++%E3%82%BD%E3%83%88%E8%AA%9E
+ ',%0A    '
+-kk
++so
+ ': '
+-Kazakh
++%E3%82%BD%E3%83%9E%E3%83%AA%E8%AA%9E
+ ',%0A    '
+-km
++th
+ ': '
+-Khmer
++%E3%82%BF%E3%82%A4%E8%AA%9E
+ ',%0A    '
+-ko
++tl
+ ': '
+-Korean
++%E3%82%BF%E3%82%AC%E3%83%AD%E3%82%B0%E8%AA%9E
+ ',%0A    '
+-ku
++tg
+ ': '
+-Kurdish (Kurmanji)
++%E3%82%BF%E3%82%B8%E3%82%AF%E8%AA%9E
+ ',%0A    '
+-ky
++ta
+ ': '
+-Kyrgyz
++%E3%82%BF%E3%83%9F%E3%83%AB%E8%AA%9E
+ ',%0A    '
+-lo
++cs
+ ': '
+-Lao
++%E3%83%81%E3%82%A7%E3%82%B3%E8%AA%9E
+ ',%0A    '
+-la
++ny
+ ': '
+-Latin
++%E3%83%81%E3%82%A7%E3%83%AF%E8%AA%9E
+ ',%0A    '
+-lv
++te
+ ': '
+-Latvian
++%E3%83%86%E3%83%AB%E3%82%B0%E8%AA%9E
+ ',%0A    '
+-lt
++da
+ ': '
+-Lithuanian
++%E3%83%87%E3%83%B3%E3%83%9E%E3%83%BC%E3%82%AF%E8%AA%9E
+ ',%0A    '
+-lb
++de
+ ': '
+-Luxembourgish
++%E3%83%89%E3%82%A4%E3%83%84%E8%AA%9E
+ ',%0A    '
+-mk
++tr
+ ': '
+-Macedonian
++%E3%83%88%E3%83%AB%E3%82%B3%E8%AA%9E
+ ',%0A    '
+-mg
++ne
+ ': '
+-Malagasy
++%E3%83%8D%E3%83%91%E3%83%BC%E3%83%AB%E8%AA%9E
+ ',%0A    '
+-ms
++no
+ ': '
+-Malay
++%E3%83%8E%E3%83%AB%E3%82%A6%E3%82%A7%E3%83%BC%E8%AA%9E
+ ',%0A    '
+-ml
++ht
+ ': '
+-Malayalam
++%E3%83%8F%E3%82%A4%E3%83%81%E8%AA%9E
+ ',%0A    '
+-mt
++ha
+ ': '
+-Maltese
++%E3%83%8F%E3%82%A6%E3%82%B5%E8%AA%9E
+ ',%0A    '
+-mi
++ps
+ ': '
+-Maori
++%E3%83%91%E3%82%B7%E3%83%A5%E3%83%88%E8%AA%9E
+ ',%0A    '
+-mr
++eu
+ ': '
+-Marathi
++%E3%83%90%E3%82%B9%E3%82%AF%E8%AA%9E
+ ',%0A    '
+-mn
++haw
+ ': '
+-Mongolian
++%E3%83%8F%E3%83%AF%E3%82%A4%E8%AA%9E
+ ',%0A    '
+-my
++hu
+ ': '
+-Myanmar (Burmese)
++%E3%83%8F%E3%83%B3%E3%82%AC%E3%83%AA%E3%83%BC%E8%AA%9E
+ ',%0A    '
+-ne
++pa
+ ': '
+-Nepali
++%E3%83%91%E3%83%B3%E3%82%B8%E3%83%A3%E3%83%96%E8%AA%9E
+ ',%0A    '
+-no
++hi
+ ': '
+-Norwegian
++%E3%83%92%E3%83%B3%E3%83%87%E3%82%A3%E3%83%BC%E8%AA%9E
+ ',%0A    '
+-ps
++fi
+ ': '
+-Pashto
++%E3%83%95%E3%82%A3%E3%83%B3%E3%83%A9%E3%83%B3%E3%83%89%E8%AA%9E
+ ',%0A 
+@@ -1621,703 +1621,654 @@
+   'f
+-a
++r
+ ': '
+-Persian
++%E3%83%95%E3%83%A9%E3%83%B3%E3%82%B9%E8%AA%9E
+ ',%0A    '
+-pl
++fy
+ ': '
+-Polish
++%E3%83%95%E3%83%AA%E3%82%B8%E3%82%A2%E8%AA%9E
+ ',%0A    '
+-pt
++bg
+ ': '
+-Portuguese
++%E3%83%96%E3%83%AB%E3%82%AC%E3%83%AA%E3%82%A2%E8%AA%9E
+ ',%0A    '
+-ma
++vi
+ ': '
+-Punjabi
++%E3%83%99%E3%83%88%E3%83%8A%E3%83%A0%E8%AA%9E
+ ',%0A    '
+-ro
++iw
+ ': '
+-Romanian
++%E3%83%98%E3%83%96%E3%83%A9%E3%82%A4%E8%AA%9E
+ ',%0A    '
+-ru
++be
+ ': '
+-Russian
++%E3%83%99%E3%83%A9%E3%83%AB%E3%83%BC%E3%82%B7%E8%AA%9E
+ ',%0A    '
+-sm
++fa
+ ': '
+-Samoan
++%E3%83%9A%E3%83%AB%E3%82%B7%E3%83%A3%E8%AA%9E
+ ',%0A    '
+-gd
++bn
+ ': '
+-Scots Gaelic
++%E3%83%99%E3%83%B3%E3%82%AC%E3%83%AB%E8%AA%9E
+ ',%0A    '
+-sr
++pl
+ ': '
+-Serbian
++%E3%83%9D%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89%E8%AA%9E
+ ',%0A    '
++b
+ s
+-t
+ ': '
+-Sesotho
++%E3%83%9C%E3%82%B9%E3%83%8B%E3%82%A2%E8%AA%9E
+ ',%0A    '
+-sn
++pt
+ ': '
+-Shona
++%E3%83%9D%E3%83%AB%E3%83%88%E3%82%AC%E3%83%AB%E8%AA%9E
+ ',%0A    '
+-sd
++mi
+ ': '
+-Sindhi
++%E3%83%9E%E3%82%AA%E3%83%AA%E8%AA%9E
+ ',%0A    '
+-si
++mk
+ ': '
+-Sinhala
++%E3%83%9E%E3%82%B1%E3%83%89%E3%83%8B%E3%82%A2%E8%AA%9E
+ ',%0A    '
+-sk
++mr
+ ': '
+-Slovak
++%E3%83%9E%E3%83%A9%E3%83%BC%E3%83%86%E3%82%A3%E3%83%BC%E8%AA%9E
+ ',%0A    '
+-sl
++mg
+ ': '
+-Slovenian
++%E3%83%9E%E3%83%A9%E3%82%AC%E3%82%B7%E8%AA%9E
+ ',%0A    '
+-so
++ml
+ ': '
+-Somali
++%E3%83%9E%E3%83%A9%E3%83%A4%E3%83%BC%E3%83%A9%E3%83%A0%E8%AA%9E
+ ',%0A    '
+-es
++mt
+ ': '
+-Spanish
++%E3%83%9E%E3%83%AB%E3%82%BF%E8%AA%9E
+ ',%0A    '
++m
+ s
+-u
+ ': '
+-Sundanese
++%E3%83%9E%E3%83%AC%E3%83%BC%E8%AA%9E
+ ',%0A    '
+-sw
++my
+ ': '
+-Swahili
++%E3%83%9F%E3%83%A3%E3%83%B3%E3%83%9E%E3%83%BC%E8%AA%9E
+ ',%0A    '
+-sv
++mn
+ ': '
+-Swedish
++%E3%83%A2%E3%83%B3%E3%82%B4%E3%83%AB%E8%AA%9E
+ ',%0A    '
+-tg
++hmn
+ ': '
+-Tajik
++%E3%83%A2%E3%83%B3%E8%AA%9E
+ ',%0A    '
+-ta
++yo
+ ': '
+-Tamil
++%E3%83%A8%E3%83%AB%E3%83%90%E8%AA%9E
+ ',%0A    '
+-te
++lo
+ ': '
+-Telugu
++%E3%83%A9%E3%82%AA%E8%AA%9E
+ ',%0A    '
+-th
++la
+ ': '
+-Thai
++%E3%83%A9%E3%83%86%E3%83%B3%E8%AA%9E
+ ',%0A    '
+-tr
++lv
+ ': '
+-Turkish
++%E3%83%A9%E3%83%88%E3%83%93%E3%82%A2%E8%AA%9E
+ ',%0A    '
+-uk
++lt
+ ': '
+-Ukrainian
++%E3%83%AA%E3%83%88%E3%82%A2%E3%83%8B%E3%82%A2%E8%AA%9E
+ ',%0A    '
+-u
+ r
++o
+ ': '
+-Urdu
++%E3%83%AB%E3%83%BC%E3%83%9E%E3%83%8B%E3%82%A2%E8%AA%9E
+ ',%0A    '
+-uz
++lb
+ ': '
+-Uzbek
++%E3%83%AB%E3%82%AF%E3%82%BB%E3%83%B3%E3%83%96%E3%83%AB%E3%82%AF%E8%AA%9E
+ ',%0A    '
+-vi
++ru
+ ': '
+-Vietnamese
++%E3%83%AD%E3%82%B7%E3%82%A2%E8%AA%9E
+ ',%0A    '
+-cy
++en
+ ': '
+-Welsh
++%E8%8B%B1%E8%AA%9E
+ ',%0A    '
+-xh
++ko
+ ': '
+-Xhosa
++%E9%9F%93%E5%9B%BD%E8%AA%9E
+ ',%0A    '
+-yi': 'Yiddish',%0A    'yo': 'Yoruba
++zh-cn': '%E4%B8%AD%E5%9B%BD%E8%AA%9E(%E7%B0%A1%E4%BD%93)',%0A    'zh-tw': '%E4%B8%AD%E5%9B%BD%E8%AA%9E(%E7%B9%81%E4%BD%93)
+ ',%0A    '
+-zu
++ja
+ ': '
+-Zulu
++%E6%97%A5%E6%9C%AC%E8%AA%9E
+ '%0A%7D;

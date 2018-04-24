@@ -1,0 +1,54 @@
+doctype html
+html(lang="ja")
+	head
+		meta(charset="UTF-8")
+		meta(
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		)
+		title=app_name
+		link(
+			rel="stylesheet"
+			href="main.css"
+		)
+	body
+		form#search
+			input(
+				type='text'
+				maxlength='2048'
+				id='q'
+				autocomplete='off'
+				class='enable-select'
+			)
+			input(
+				type='submit'
+				value='検索'
+			)
+			button#closeResultWindows(type='button') 検索結果を全て閉じる
+			table#lang-select
+				caption 検索オプション
+				tr
+					td 元言語
+					td :
+						select(id='f')
+							option(value='auto') 自動検出
+				tr
+					td 翻訳先言語
+					td :
+						select(id='t')
+							option(value="none") 翻訳しない
+
+			table(id='target')
+				caption 検索対象
+				- var target = ['Google画像検索', 'Pinterest', 'Tumblr']
+				each item in target
+					tr
+						td.checkbox
+							input(
+								type='checkbox'
+								name='shows'
+								id=item
+							)
+						td.label
+							label(for=item)=item
+			script require('./renderer.js')

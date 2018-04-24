@@ -1,0 +1,48 @@
+{
+	"name": "Lupusiro",
+	"version": "0.1.0",
+	"description": "入力された文字列と翻訳した文字列でGoogle画像検索、Pinterest、Tumblrの検索結果を表示する。",
+	"main": "main.js",
+	"scripts": {
+		"start": "electron tmp",
+		"release": "node release.js",
+		"build:css": "node stylus2css.js",
+		"build:html": "node pug2html.js",
+		"build:js": "node copy_js.js",
+		"build:res": "node copy_res.js",
+		"build:mod": "node install_modules.js",
+		"build:patch": "node patch.js",
+		"build": "npm run build:css & npm run build:html & npm run build:js & npm run build:res & npm run build:mod & npm run build:patch",
+		"clean": "node clean.js"
+	},
+	"repository": "https://github.com/KaguaKurusu/lupusiro",
+	"keywords": [
+		"search",
+		"translate",
+		"image",
+		"electron"
+	],
+	"author": "来栖華紅鴉",
+	"license": "MIT",
+	"directories": {
+		"src": "src",
+		"stylus": "src/stylus",
+		"pug": "src/pug",
+		"js": "src/js",
+		"img": "src/img",
+		"dist": "dist",
+		"tmp": "tmp"
+	},
+	"devDependencies": {
+		"diff-match-patch": "^1.0.0",
+		"electron": "^1.8.4",
+		"electron-packager": "^11.2.0",
+		"fs-extra": "^5.0.0",
+		"pug": "^2.0.3",
+		"stylus": "^0.54.5"
+	},
+	"dependencies": {
+		"electron-settings": "^3.1.4",
+		"google-translate-api": "^2.3.0"
+	}
+}
