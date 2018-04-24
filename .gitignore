@@ -57,3 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+# tempolary directory
+tmp/
+
+# dist directory
+dist/
