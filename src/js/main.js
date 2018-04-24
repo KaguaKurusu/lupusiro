@@ -73,43 +73,93 @@ const base_url = {
 	'Pinterest': 'https://www.pinterest.jp/search/pins/?q=%q',
 	'Tumblr': 'https://www.tumblr.com/search/%q'
 }
-const template = [
-	{
-		label: 'ファイル(&F)',
-		submenu: [
+const template = (() => {
+	if (process.platform === 'darwin') {
+		return [
 			{
-				label: '終了',
-				role: 'quit'
-			}
-		]
-	},
-	{
-		label: 'ヘルプ(&H)',
-		submenu: [
+				label: app.getName(),
+				submenu: [
+					{
+						label: `${app.getName()}について`,
+						click(){ about(mainWindow) }
+					},
+					{type: 'separator'},
+					{
+						label: 'サービス',
+						role: 'services',
+						submenu: []
+					},
+					{type: 'separator'},
+					{
+						label: `${app.getName()}を隠す`,
+						accelerator: 'Command+H',
+						click: () => app.hide()
+					},
+					{
+						label: '他を隠す',
+						accelerator: 'Command+Alt+H',
+						role: 'hideothers'
+					},
+					{
+						label: 'すべてを表示',
+						role: 'unhide'
+					},
+					{type: 'separator'},
+					{
+						label: `${app.getName()}を終了`,
+						accelerator: 'Command+Q',
+						click: () => app.quit()
+					}
+				]
+			},
 			{
-				label: `${app.getName()}について(&A)`,
-				click(){ about(mainWindow) }
+				label: 'ウィンドウ',
+				role: 'window',
+				submenu: [
+					{
+						label: '最小化',
+						accelerator: 'Cmd+M',
+						role: 'minimize'
+					},
+					{
+						label: '閉じる',
+						accelerator: 'Cmd+W',
+						role: 'close'
+					},
+					{
+						type: 'separator'
+					},
+					{
+						label: 'すべてを手前に表示',
+						role: 'front'
+					}
+				]
 			}
 		]
 	}
-]
-
-if (process.platform === 'darwin') {
-	template = [{
-		label: app.getName(),
-			submenu: [
-				{role: 'about'},
-				{type: 'separator'},
-				{role: 'services', submenu: []},
-				{type: 'separator'},
-				{role: 'hide'},
-				{role: 'hideothers'},
-				{role: 'unhide'},
-				{type: 'separator'},
-				{role: 'quit'}
-			]
-	}]
-}
+	else {
+		return [
+			{
+				label: 'ファイル(&F)',
+				submenu: [
+					{
+						label: '終了',
+						role: 'quit'
+					}
+				]
+			},
+			{
+				label: 'ヘルプ(&H)',
+				submenu: [
+					{
+						label: `${app.getName()}について(&A)`,
+						click(){ about(mainWindow) }
+					}
+				]
+			}
+		]
+	}
+})()
 
 let mainWindow = null
 let resultWindow = {
@@ -129,7 +179,13 @@ let resultWindow = {
 
 const menu = Menu.buildFromTemplate(template)
 
-app.on('ready', createWindow)
+
+app.on('ready', () => {
+	if (process.platform === 'darwin') {
+		Menu.setApplicationMenu(menu)
+	}
+	createWindow()
+})
 
 app.on('window-all-closed', () => {
 	if (process.platform !== 'darwin') {
@@ -198,7 +254,8 @@ function createWindow () {
 		x: bounds.x,
 		y: bounds.y,
 		show: false,
-		resizable: false
+		resizable: false,
+		maximizable: false
 	})
 
 	mainWindow.once('ready-to-show', () => {
@@ -212,7 +269,9 @@ function createWindow () {
 		slashes: true
 	}))
 
-	mainWindow.setMenu(menu)
+	if (process.platform !== 'darwin') {
+		mainWindow.setMenu(menu)
+	}
 
 	//-------------------------------------------------------
 	// For Debugging

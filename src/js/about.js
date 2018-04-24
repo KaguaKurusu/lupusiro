@@ -13,10 +13,18 @@ function showAbutWindow(parentWindow) {
 		useContentSize: true,
 		x: bounds.x,
 		y: bounds.y,
-		parent: parentWindow,
+		parent: (() => {
+			if (process.platform === 'darwin') {
+				return null
+			}
+			else {
+				return parentWindow
+			}
+		})(),
 		modal: true,
 		show: false,
-		resizable: false
+		resizable: false,
+		maximizable: false
 	})
 
 	aboutWindow.once('ready-to-show', () => {
