@@ -17,8 +17,8 @@ Requirement: Git(Option), Node.js
 $ git clone https://github.com/KaguaKurusu/lupusiro
 $ cd lupusiro
 $ npm i
-$ npm build
-$ npm release
+$ npm run build
+$ npm run release
 ```
 
 ## 謝辞
