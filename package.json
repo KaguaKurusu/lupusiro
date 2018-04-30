@@ -5,15 +5,15 @@
 	"main": "main.js",
 	"scripts": {
 		"start": "electron tmp",
-		"release": "node release.js",
-		"build:css": "node stylus2css.js",
-		"build:html": "node pug2html.js",
-		"build:js": "node copy_js.js",
-		"build:res": "node copy_res.js",
-		"build:mod": "node install_modules.js",
-		"build:patch": "node patch.js",
+		"release": "node tools/release.js",
+		"build:css": "node tools/stylus2css.js",
+		"build:html": "node tools/pug2html.js",
+		"build:js": "node tools/copy_js.js",
+		"build:res": "node tools/copy_res.js",
+		"build:mod": "node tools/install_modules.js",
+		"build:patch": "node tools/patch.js",
 		"build": "npm run build:css && npm run build:html && npm run build:js && npm run build:res && npm run build:mod && npm run build:patch",
-		"clean": "node clean.js"
+		"clean": "node tools/clean.js"
 	},
 	"repository": "https://github.com/KaguaKurusu/lupusiro",
 	"keywords": [
@@ -24,7 +24,7 @@
 	],
 	"author": "来栖華紅鴉",
 	"license": "MIT",
-	"directories": {
+	"dirs": {
 		"src": "src",
 		"stylus": "src/stylus",
 		"pug": "src/pug",

@@ -1,9 +1,7 @@
-const	stylus = require('stylus')
+const stylus = require('stylus')
 const fs = require('fs-extra')
-const join = require('path').join
-const basename = require('path').basename
-const extname = require('path').extname
-const dirs = require('./package.json').directories
+const {join, basename, extname} = require('path')
+const {dirs} = require('../package.json')
 
 let argv = process.argv
 let ext = '.stylus'
@@ -28,7 +26,7 @@ else{
 }
 
 
-function stylus2css(src_dir, dest_dir, fname) {
+function stylus2css(src_dir, dist_dir, fname) {
 	fs.readFile(join(src_dir, fname), 'utf8', (err, str) => {
 		if (err) throw err
 
@@ -40,7 +38,7 @@ function stylus2css(src_dir, dest_dir, fname) {
 				if (err) throw err
 
 				fs.outputFile(join(
-					dest_dir,
+					dist_dir,
 					basename(fname, extname(fname)) + '.css'
 				), css, (err) => {
 					if (err) throw err

@@ -1,10 +1,10 @@
 const fs = require('fs-extra')
-const join = require('path').join
-const pkg = require('./package.json')
-const dirs = pkg.directories
+const {join} = require('path')
+const pkg = require('../package.json')
+const dirs = pkg.dirs
 
 pkg.devDependencies = undefined
-pkg.scripts.start = "node main.js"
+pkg.scripts.start = 'node main.js'
 
 fs.outputJson(
 	join(dirs.tmp, 'package.json'),

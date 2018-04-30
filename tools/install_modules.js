@@ -1,5 +1,6 @@
 const {exec} = require('child_process')
-const tmp = require('./package.json').directories.tmp
+const {join} = require('path')
+const tmp = require('../package.json').dirs.tmp
 
 exec('npm i', {
 	cwd: tmp

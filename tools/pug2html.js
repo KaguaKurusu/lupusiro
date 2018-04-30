@@ -1,12 +1,11 @@
 const pug = require('pug')
 const fs = require('fs-extra')
-const join = require('path').join
-const basename = require('path').basename
-const extname = require('path').extname
-const dirs = require('./package.json').directories
-const app_name = require('./package.json').name
-const app_ver = require('./package.json').version
-const author = require('./package.json').author
+const {join, basename, extname} = require('path')
+const pkg = require('../package.json')
+const dirs = pkg.dirs
+const app_name = pkg.name
+const app_ver = pkg.version
+const author = pkg.author
 
 let argv = process.argv
 let ext = '.pug'
@@ -30,7 +29,7 @@ else {
 	})
 }
 
-function pug2html(src_dir, dest_dir, fname) {
+function pug2html(src_dir, dist_dir, fname) {
 	var html = pug.compileFile(join(src_dir, fname), {
 		basedir: src_dir,
 		// Format style. If you don't want minify then uncomment next line.
@@ -43,7 +42,7 @@ function pug2html(src_dir, dest_dir, fname) {
 	})
 
 	fs.outputFile(join(
-		dest_dir,
+		dist_dir,
 		basename(fname, extname(fname)) + '.html'
 	), html, (err) => {
 		if (err) throw err

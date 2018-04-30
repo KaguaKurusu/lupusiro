@@ -1,8 +1,7 @@
 const DiffMatchPatch = require('diff-match-patch')
 const fs = require('fs')
-const join = require('path').join
-
-const tmp = 'tmp'
+const {join} = require('path')
+const tmp = require('../package.json').dirs.tmp
 
 let dmp = new DiffMatchPatch()
 let src_path = 'node_modules/google-translate-api/languages.js'

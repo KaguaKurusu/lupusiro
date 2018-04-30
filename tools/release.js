@@ -1,6 +1,7 @@
 const packager = require("electron-packager")
-const package = require("./package.json")
-const electron_ver = require("./node_modules/electron/package.json").version
+const package = require("../package.json")
+const {join} = require('path')
+const electron_ver = require("../node_modules/electron/package.json").version
 const os = require('os')
 
 let out_arch = null
@@ -44,8 +45,8 @@ switch (out_arch) {
 	case 'ia32':
 		packager({
 			name: package.name,
-			dir: 'tmp',
-			out: 'dist',
+			dir: package.dirs.tmp,
+			out: package.dirs.dist,
 			// icon: `src/app_icon${icon_ext}`,
 			ignore: '.git',
 			platform: process.platform,
