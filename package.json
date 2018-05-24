@@ -2,18 +2,26 @@
 	"name": "Lupusiro",
 	"version": "0.1.0",
 	"description": "入力された文字列と翻訳した文字列でGoogle画像検索、Pinterest、Tumblrの検索結果を表示する。",
-	"main": "main.js",
+	"main": "index.js",
+	"directories": {
+		"lib": "lib"
+	},
 	"scripts": {
-		"start": "electron tmp",
-		"release": "node tools/release.js",
-		"build:css": "node tools/stylus2css.js",
-		"build:html": "node tools/pug2html.js",
-		"build:js": "node tools/copy_js.js",
-		"build:res": "node tools/copy_res.js",
-		"build:mod": "node tools/install_modules.js",
-		"build:patch": "node tools/patch.js",
-		"build": "npm run build:css && npm run build:html && npm run build:js && npm run build:res && npm run build:mod && npm run build:patch",
-		"clean": "node tools/clean.js"
+		"start": "npm run build && npm run watch",
+		"build": "npm run stylus && npm run pug && npm run js && npm run package && npm run image && npm run patch && npm run icon",
+		"release": "npm run build && node index.js release",
+		"release:all": "npm run build && node index.js release:all",
+		"make": "npm run release:all && node index.js make",
+		"stylus": "node index.js stylus",
+		"pug": "node index.js pug",
+		"js": "node index.js js",
+		"package": "node index.js package",
+		"patch": "node index.js patch",
+		"image": "node index.js image",
+		"icon": "node index.js icon",
+		"watch": "node index.js watch",
+		"run": "electron public",
+		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": "https://github.com/KaguaKurusu/lupusiro",
 	"keywords": [
@@ -24,25 +32,19 @@
 	],
 	"author": "来栖華紅鴉",
 	"license": "MIT",
-	"dirs": {
-		"src": "src",
-		"stylus": "src/stylus",
-		"pug": "src/pug",
-		"js": "src/js",
-		"img": "src/img",
-		"dist": "dist",
-		"tmp": "tmp"
-	},
-	"devDependencies": {
-		"diff-match-patch": "^1.0.0",
-		"electron": "^1.8.4",
-		"electron-packager": "^11.2.0",
-		"fs-extra": "^5.0.0",
-		"pug": "^2.0.3",
-		"stylus": "^0.54.5"
-	},
 	"dependencies": {
 		"electron-settings": "^3.1.4",
 		"google-translate-api": "^2.3.0"
+	},
+	"devDependencies": {
+		"fs-extra": "^6.0.1",
+		"diff-match-patch": "^1.0.1",
+		"electron": "^2.0.0",
+		"electron-packager": "^12.0.2",
+		"gaze": "^1.1.2",
+		"glob": "^7.1.2",
+		"pug": "^2.0.3",
+		"stylus": "^0.54.5",
+		"uglify-es": "^3.3.9"
 	}
 }

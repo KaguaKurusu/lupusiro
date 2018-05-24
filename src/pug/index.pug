@@ -20,35 +20,30 @@ html(lang="ja")
 				autocomplete='off'
 				class='enable-select'
 			)
-			input(
-				type='submit'
-				value='検索'
-			)
-			button#closeResultWindows(type='button') 検索結果を全て閉じる
-			table#lang-select
-				caption 検索オプション
-				tr
-					td 元言語
-					td :
+			a#submit.button 検索
+			fieldset#option
+				legend 検索オプション
+				#lang-label
+					label(for="f") 翻訳元言語
+					label(for="t") 翻訳先言語
+				#lang-select
+					span
 						select(id='f')
 							option(value='auto') 自動検出
-				tr
-					td 翻訳先言語
-					td :
+					span
 						select(id='t')
 							option(value="none") 翻訳しない
 
-			table(id='target')
-				caption 検索対象
-				- var target = ['Google画像検索', 'Pinterest', 'Tumblr']
-				each item in target
-					tr
-						td.checkbox
-							input(
+				fieldset#target
+					legend 検索対象
+					- var target = ['Google画像検索', 'Pinterest', 'Tumblr']
+					each item in target
+						label
+							input.checkbox(
 								type='checkbox'
 								name='shows'
 								id=item
 							)
-						td.label
-							label(for=item)=item
+							span=item
+			a#closeResultWindows.button 検索結果を全て閉じる
 			script require('./renderer.js')

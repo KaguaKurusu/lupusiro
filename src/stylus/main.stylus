@@ -1,9 +1,17 @@
-@charset "UTF-8"
+active-color = #3498db
 
-@font-face
-	font-family "Yu Gothic"
-	src local("Yu Gothic Medium")
-	font-weight 400
+form-items-active = @block {
+	box-shadow 0 0 7px active-color
+	border-color active-color
+}
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700)
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css)
+
+*
+	font-size 14px
+	font-family Lato, "Noto Sans JP", "游ゴシック Medium", "游ゴシック体", "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif
+	letter-spacing .1rem
 
 html
 	height 100%
@@ -12,26 +20,85 @@ body
 	padding 0
 	margin 0
 	height 100%
-	font 14px "Yu Gothic"
 	cursor default
+	overflow hidden
 
-table
-	margin-top 10px
+form
+	// margin 20px
+	padding 20px
 
-caption
-	text-align left
+fieldset
+	margin 10px 0
+	padding 0
+	border none
+	&#option
+		padding-left 10px
+	&#target
+		margin-bottom 0
 
-#search
-	padding 8px
+legend
+	position relative
+	left -10px
+
+input[type="text"]
+	margin-right 10px
+	width 333.58px
+	padding 0.8em
+	outline none
+	border 1px solid #ddd
+	border-radius 3px
+	&:focus
+		{form-items-active}
+
+.button
+		display inline-block
+		background linear-gradient(#fff, #eee)
+		border 1px solid #ddd
+		color #111
+		padding 10px 30px
+		border-radius 3px
+		&:hover
+			background linear-gradient(#efefef, #eee)
+		&:active
+			{form-items-active}
+
+#lang-label label,
+#lang-select span
+	display inline-block
+	width 230.38px
+
+select
+	padding 0.8em
 
 #target
-	width 100%
 	.checkbox
-		width 20px
-		height 21px
-	.label:hover
-		background #000
-		color #fff
-	label
-		display inline-block
-		width 100%
+		display none
+		&:checked + span
+			color active-color
+			&::after
+				content ""
+				display block
+				position absolute
+				top -5px
+				left 5px
+				width 7px
+				height 14px
+				transform rotate(40deg)
+				border-bottom 3px solid active-color
+				border-right 3px solid active-color
+	span
+		margin-right 10px
+		padding-left 20px
+		position relative
+		&::before
+			content ""
+			display block
+			position absolute
+			top 0
+			left 0
+			width 15px
+			height 15px
+			border 1px solid #999
+			border-radius 4px
+		&:hover
+			{form-items-active}

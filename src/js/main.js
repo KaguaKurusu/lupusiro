@@ -7,7 +7,7 @@ const path = require('path')
 const url = require('url')
 const translate = require('google-translate-api')
 const about = require('./about')
-const Settings = require('./lib/electron-settings-wrap')
+const Settings = require('./electron-settings-wrap')
 const settings = new Settings({
 	bounds: {
 		mainWindow: {
@@ -149,6 +149,12 @@ const template = (() => {
 				]
 			},
 			{
+				label: '表示',
+				submenu: [
+					{ role: 'reload' }
+				]
+			},
+			{
 				label: 'ヘルプ(&H)',
 				submenu: [
 					{
@@ -248,8 +254,8 @@ function createWindow () {
 
 	// Create the browser window.
 	mainWindow = new BrowserWindow({
-		width: 280,
-		height: 282,
+		width: 511,
+		height: 297,
 		useContentSize: true,
 		x: bounds.x,
 		y: bounds.y,

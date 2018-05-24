@@ -58,10 +58,8 @@ typings/
 .env
 
 # tempolary directory
-tmp/
-
-# dist directory
-dist/
+public/
+release/
 
 # macOS metadata file
 .DS_Store

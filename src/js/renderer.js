@@ -23,7 +23,7 @@ document.onselectstart = (event) => {
 	return event.target.parentElement.classList.contains('enable-select')
 }
 
-search.onsubmit = (event) => {
+search.onsubmit = submit.onclick = (event) => {
 	let str = q.value
 
 	if (str !== '') {
