@@ -63,7 +63,7 @@ const settings = new Settings({
 		'Tumblr': true
 	},
 	langs: {
-		from: 'auto',
+		from: 'ja',
 		to: 'en'
 	}
 })
@@ -112,6 +112,20 @@ const template = (() => {
 					}
 				]
 			},
+			//-------------------------------------------------------
+			// For Debugging
+			// {
+			// 	label: '表示',
+			// 	submenu: [
+			// 		{ role: 'reload' },
+			// 		{ role: 'toggleDevTools' },
+			// 		{
+			// 			label: 'リサイズ可能にする',
+			// 			click(){ mainWindow.setResizable(true) }
+			// 		}
+			// 	],
+			// },
+			//-------------------------------------------------------
 			{
 				label: 'ウィンドウ',
 				role: 'window',
@@ -148,12 +162,20 @@ const template = (() => {
 					}
 				]
 			},
-			{
-				label: '表示',
-				submenu: [
-					{ role: 'reload' }
-				]
-			},
+			//-------------------------------------------------------
+			// For Debugging
+			// {
+			// 	label: '表示',
+			// 	submenu: [
+			// 		{ role: 'reload' },
+			// 		{ role: 'toggleDevTools' },
+			// 		{
+			// 			label: 'リサイズ可能にする',
+			// 			click(){ mainWindow.setResizable(true) }
+			// 		}
+			// 	],
+			// },
+			//-------------------------------------------------------
 			{
 				label: 'ヘルプ(&H)',
 				submenu: [
@@ -254,8 +276,8 @@ function createWindow () {
 
 	// Create the browser window.
 	mainWindow = new BrowserWindow({
-		width: 511,
-		height: 297,
+		width: 1042,
+		height: 515,
 		useContentSize: true,
 		x: bounds.x,
 		y: bounds.y,
@@ -270,6 +292,7 @@ function createWindow () {
 
 	// and load the index.html of the app.
 	mainWindow.loadURL(url.format({
+		// pathname: path.join(__dirname, 'index.html'),
 		pathname: path.join(__dirname, 'index.html'),
 		protocol: 'file:',
 		slashes: true
@@ -278,13 +301,6 @@ function createWindow () {
 	if (process.platform !== 'darwin') {
 		mainWindow.setMenu(menu)
 	}
-
-	//-------------------------------------------------------
-	// For Debugging
-	// mainWindow.setResizable(true)
-	// Open the DevTools.
-	// mainWindow.webContents.openDevTools()
-	//-------------------------------------------------------
 
 	mainWindow.on('move', () => {
 		if (mainWindow.isMinimized() === false) {

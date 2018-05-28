@@ -11,7 +11,7 @@ html(lang="ja")
 			rel="stylesheet"
 			href="main.css"
 		)
-	body
+	body#body
 		form#search
 			input(
 				type='text'
@@ -20,30 +20,37 @@ html(lang="ja")
 				autocomplete='off'
 				class='enable-select'
 			)
-			a#submit.button 検索
-			fieldset#option
-				legend 検索オプション
-				#lang-label
-					label(for="f") 翻訳元言語
-					label(for="t") 翻訳先言語
-				#lang-select
-					span
-						select(id='f')
-							option(value='auto') 自動検出
-					span
-						select(id='t')
-							option(value="none") 翻訳しない
+			input(
+				type="submit"
+				value="検索"
+			).button
 
-				fieldset#target
-					legend 検索対象
-					- var target = ['Google画像検索', 'Pinterest', 'Tumblr']
-					each item in target
-						label
-							input.checkbox(
-								type='checkbox'
-								name='shows'
-								id=item
-							)
-							span=item
-			a#closeResultWindows.button 検索結果を全て閉じる
-			script require('./renderer.js')
+			#lang-label
+				label(for="f") 翻訳元言語
+				label(for="t") 翻訳先言語
+
+			#lang-select
+				#fromLangSelect.langSelect
+					#f.langSelected(tabindex="0")
+					#fromLangSelectValues.langSelectValues
+					input#fromLang(type="hidden")
+
+				#toLangSelect.langSelect
+					#t.langSelected(tabindex="0")
+					#toLangSelectValues.langSelectValues
+					input#toLang(type="hidden")
+
+			fieldset#target
+				legend 検索対象
+				- var target = ['Google画像検索', 'Pinterest', 'Tumblr']
+				each item in target
+					label
+						input.checkbox(
+							type='checkbox'
+							name='shows'
+							id=item
+							tabindex="0"
+						)
+						span=item
+			button(type="button")#closeResultWindows.button 検索結果を全て閉じる
+		script require('./renderer.js')

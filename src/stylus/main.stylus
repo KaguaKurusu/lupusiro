@@ -1,10 +1,12 @@
 active-color = #3498db
 
 form-items-active = @block {
+	outline none
 	box-shadow 0 0 7px active-color
 	border-color active-color
 }
 
+@charset "UTF-8"
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700)
 @import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css)
 
@@ -12,6 +14,10 @@ form-items-active = @block {
 	font-size 14px
 	font-family Lato, "Noto Sans JP", "游ゴシック Medium", "游ゴシック体", "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif
 	letter-spacing .1rem
+	user-select none
+
+.enable-select
+	user-select text
 
 html
 	height 100%
@@ -24,21 +30,12 @@ body
 	overflow hidden
 
 form
-	// margin 20px
 	padding 20px
 
 fieldset
 	margin 10px 0
 	padding 0
 	border none
-	&#option
-		padding-left 10px
-	&#target
-		margin-bottom 0
-
-legend
-	position relative
-	left -10px
 
 input[type="text"]
 	margin-right 10px
@@ -50,6 +47,14 @@ input[type="text"]
 	&:focus
 		{form-items-active}
 
+ul
+	margin 10px
+	padding 0
+	list-style-type none
+	display inline-block
+	vertical-align top
+	font-size 12px
+
 .button
 		display inline-block
 		background linear-gradient(#fff, #eee)
@@ -59,16 +64,65 @@ input[type="text"]
 		border-radius 3px
 		&:hover
 			background linear-gradient(#efefef, #eee)
-		&:active
+		&:active, &:focus
 			{form-items-active}
 
-#lang-label label,
-#lang-select span
+#lang-label label
+	margin-top 10px
+	display inline-block
+	width 302.38px
+
+.langSelect
+	margin-right 10px
+	display inline-block
+	position relative
+	z-index 9999
+
+
+.langSelected
 	display inline-block
 	width 230.38px
-
-select
 	padding 0.8em
+	background linear-gradient(#fff, #eee)
+	border 1px solid #ddd
+	color #111
+	padding 10px 30px
+	border-radius 3px
+	text-align left
+	cursor pointer
+	&:hover
+		background linear-gradient(#efefef, #eee)
+	&:focus
+		{form-items-active}
+	&::after
+		content "▼"
+		display block
+		height 28px
+		font-size 10px
+		padding-top 12px
+		padding-left 5px
+		border-left 1px solid #ddd
+		position absolute
+		right .8em
+		top 1px
+
+.langSelectValues
+	display none
+	& li:hover
+		background active-color
+		color #fff
+		cursor pointer
+
+.langSelectValuesShow
+	display block
+	position absolute
+	width 1000px
+	background #fff
+	border 1px solid #ddd
+	border-radius 3px
+
+#toLangSelectValues
+	left -302px
 
 #target
 	.checkbox
