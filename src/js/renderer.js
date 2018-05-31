@@ -2,6 +2,8 @@ const electron = require('electron')
 const ipc = electron.ipcRenderer
 const languages = require('google-translate-api/languages')
 
+const showClass = 'langSelectValuesShow'
+
 let langs = {}
 
 for (let key in languages) {
@@ -16,7 +18,7 @@ ipc.on('res-defaults', (event, lang, shows) => {
 	setLangSelect(lang)
 })
 
-search.onsubmit = (event) => {
+search.onsubmit = event => {
 	let str = q.value
 
 	if (str !== '') {
@@ -36,8 +38,46 @@ search.onsubmit = (event) => {
 	return false
 }
 
-closeResultWindows.onclick = (event) => {
+closeResultWindows.onclick = event => {
 	ipc.send('close-result-windows')
+}
+
+window.onkeyup = event => {
+	let key = event.code
+	let target = event.target
+	let id = target.id
+	let fromClass = fromLangSelectValues.classList
+	let toClass = toLangSelectValues.classList
+
+	switch (key) {
+		case 'Enter':
+		case 'Space':
+			if (id === 'f') {
+				if (fromClass.contains(showClass)) {
+					// TODO: 言語選択完了させる処理追加
+					fromClass.remove(showClass)
+				}
+				else {
+					toClass.remove(showClass)
+					fromClass.add(showClass)
+				}
+			}
+			else if (id === 't') {
+				if (toClass.contains(showClass)) {
+					// TODO: 言語選択完了させる処理追加
+					toClass.remove(showClass)
+				}
+				else {
+					fromClass.remove(showClass)
+					toClass.add(showClass)
+				}
+			}
+			else if (target.tagName === 'LABEL') {
+				target = target.control
+				target.checked = !target.checked
+			}
+			break
+	}
 }
 
 body.onclick = event => {
@@ -48,25 +88,25 @@ body.onclick = event => {
 	if (cn === 'toLangSelectValue') {
 		t.innerText = target.innerText
 		toLang.value = target.dataset.value
-		toLangSelectValues.classList.remove('langSelectValuesShow')
+		toLangSelectValues.classList.remove(showClass)
 	}
 	else if (tid === 't') {
-		toLangSelectValues.classList.toggle('langSelectValuesShow')
+		toLangSelectValues.classList.toggle(showClass)
 	}
 	else {
-		toLangSelectValues.classList.remove('langSelectValuesShow')
+		toLangSelectValues.classList.remove(showClass)
 	}
 
 	if (cn === 'fromLangSelectValue') {
 		f.innerText = target.innerText
 		fromLang.value = target.dataset.value
-		fromLangSelectValues.classList.remove('langSelectValuesShow')
+		fromLangSelectValues.classList.remove(showClass)
 	}
 	else if (tid === 'f') {
-		fromLangSelectValues.classList.toggle('langSelectValuesShow')
+		fromLangSelectValues.classList.toggle(showClass)
 	}
 	else {
-		fromLangSelectValues.classList.remove('langSelectValuesShow')
+		fromLangSelectValues.classList.remove(showClass)
 	}
 }
 
@@ -94,7 +134,6 @@ function setLangSelect(lang) {
 		li_f.className = 'fromLangSelectValue'
 		ul_f.appendChild(li_f)
 
-		console.log(`${lang.from}: ${key}: ${lang.from === key}`)
 		if (lang.from === key) {
 			fromLang.value = key
 			f.innerText = langs[key]
@@ -111,7 +150,6 @@ function setLangSelect(lang) {
 		li_t.className = 'toLangSelectValue'
 		ul_t.appendChild(li_t)
 
-		console.log(`${lang.to}: ${key}: ${lang.to === key}`)
 		if (lang.to === key) {
 			toLang.value = key
 			t.innerText = str

@@ -44,12 +44,11 @@ html(lang="ja")
 				legend 検索対象
 				- var target = ['Google画像検索', 'Pinterest', 'Tumblr']
 				each item in target
-					label
+					label(tabindex="0")
 						input.checkbox(
 							type='checkbox'
 							name='shows'
 							id=item
-							tabindex="0"
 						)
 						span=item
 			button(type="button")#closeResultWindows.button 検索結果を全て閉じる

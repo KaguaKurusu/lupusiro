@@ -120,8 +120,10 @@ const template = (() => {
 			// 		{ role: 'reload' },
 			// 		{ role: 'toggleDevTools' },
 			// 		{
-			// 			label: 'リサイズ可能にする',
-			// 			click(){ mainWindow.setResizable(true) }
+			// 			label: 'Toggle Window Reseizeable',
+			// 			click(){
+			// 				mainWindow.setResizable(!mainWindow.isResizable())
+			// 			}
 			// 		}
 			// 	],
 			// },
@@ -164,17 +166,19 @@ const template = (() => {
 			},
 			//-------------------------------------------------------
 			// For Debugging
-			// {
-			// 	label: '表示',
-			// 	submenu: [
-			// 		{ role: 'reload' },
-			// 		{ role: 'toggleDevTools' },
-			// 		{
-			// 			label: 'リサイズ可能にする',
-			// 			click(){ mainWindow.setResizable(true) }
-			// 		}
-			// 	],
-			// },
+			{
+				label: '表示',
+				submenu: [
+					{ role: 'reload' },
+					{ role: 'toggleDevTools' },
+					{
+						label: 'Toggle Window Reseizeable',
+						click(){
+							mainWindow.setResizable(!mainWindow.isResizable())
+						}
+					}
+				],
+			},
 			//-------------------------------------------------------
 			{
 				label: 'ヘルプ(&H)',
