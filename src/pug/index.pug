@@ -11,7 +11,11 @@ html(lang="ja")
 			rel="stylesheet"
 			href="main.css"
 		)
-	body#body
+		link(
+			rel="stylesheet"
+			href="mcs.css"
+		)
+	body
 		form#search
 			input(
 				type='text'
@@ -30,15 +34,8 @@ html(lang="ja")
 				label(for="t") 翻訳先言語
 
 			#lang-select
-				#fromLangSelect.langSelect
-					#f.langSelected(tabindex="0")
-					#fromLangSelectValues.langSelectValues
-					input#fromLang(type="hidden")
-
-				#toLangSelect.langSelect
-					#t.langSelected(tabindex="0")
-					#toLangSelectValues.langSelectValues
-					input#toLang(type="hidden")
+				#fromLangSelect.mcs
+				#toLangSelect.mcs
 
 			fieldset#target
 				legend 検索対象
@@ -52,4 +49,7 @@ html(lang="ja")
 						)
 						span=item
 			button(type="button")#closeResultWindows.button 検索結果を全て閉じる
+
+			#mcs(tabindex="0")
+
 		script require('./renderer.js')
