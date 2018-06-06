@@ -2,17 +2,25 @@ const {BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 
-let aboutWindow
+const width = 280
+const height = 240
+
+let aboutWindow = null
 
 function showAbutWindow(parentWindow) {
 	let bounds = parentWindow.getBounds()
+	let size = parentWindow.getSize()
+	let x = bounds.x + parseInt(size[0] / 2) - parseInt(width / 2)
+	let y = bounds.y + parseInt(size[1] / 2) - parseInt(height / 2)
+
+	console.log(`x: ${x}, y: ${y}`)
 
 	aboutWindow = new BrowserWindow({
-		width: 280,
-		height: 240,
+		width: width,
+		height: height,
 		useContentSize: true,
-		x: bounds.x,
-		y: bounds.y,
+		x: x,
+		y: y,
 		parent: (() => {
 			if (process.platform === 'darwin') {
 				return null
