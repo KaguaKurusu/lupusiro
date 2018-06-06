@@ -1,12 +1,13 @@
 # Lupusiro
-
 **指定文字列とその翻訳結果でのGoogle画像検索、Pinterest、Tumblrの検索結果を表示するツール。**
+[![CocoaPods](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 
 irohamさんがTwitterでつぶやいてたから作りました(/・ω・)/
 翻訳精度はGoogle翻訳依存です。
 現在のプログラムアイコンは仮です。
 なお、現在は基本機能の実装のみのβ版です(ノ)&lowast;･ω･&lowast;(ヾ)ﾓﾌﾓﾌ
-
+キーボードのみでも操作できるのです(｀・ω・´)
 
 ## インストール方法
 ### Windows

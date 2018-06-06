@@ -42,7 +42,6 @@ target.onkeyup = event => {
 	let key = event.code
 	let target = event.target
 
-	console.log(key)
 	switch (key) {
 		case 'Enter':
 		case 'Space':
@@ -65,7 +64,7 @@ function setShows(shows) {
 function setLangSelect(lang) {
 	let numOfClumn = 16
 	let index = { from: 0, to: 0 }
-	let langs = (() => {
+	let fromLangs = (() => {
 		let values = []
 		let i = 0
 
@@ -87,13 +86,14 @@ function setLangSelect(lang) {
 		return values
 	})()
 
-	from = new MCS(fromLangSelect, langs, {
+	from = new MCS(fromLangSelect, fromLangs, {
 		default: index.from,
 		rows: numOfClumn
 	})
 
-	langs[0] = { value: 'none', text:  '翻訳しない'}
-	to = new MCS(toLangSelect, langs, {
+	toLangs = fromLangs.concat()
+	toLangs[0] = { value: 'none', text:  '翻訳しない'}
+	to = new MCS(toLangSelect, toLangs, {
 		default: index.to,
 		rows: numOfClumn
 	})

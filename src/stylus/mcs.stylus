@@ -6,6 +6,10 @@ form-items-active = @block {
 	border-color active-color
 }
 
+selected = @block {
+	background active-color
+	color #fff
+}
 
 .mcs
 	margin-right 10px
@@ -51,9 +55,10 @@ form-items-active = @block {
 		vertical-align top
 		font-size 12px
 	li:hover
-		background active-color
-		color #fff
 		cursor pointer
+
+.selected
+	{selected}
 
 .mcs-show
 	display block
