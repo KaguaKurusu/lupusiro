@@ -1,7 +1,9 @@
+'use strict';
 class MultiColumnSelect {
-	constructor(elem, values, opts) {
+	constructor(elem, values, id, opts) {
 		this.root = elem
 		this.values = values
+		this.id = id
 		this.valuesElem = []
 		this.rows = opts.rows || 16
 		this.selected = opts.default || 0
@@ -16,6 +18,7 @@ class MultiColumnSelect {
 
 		this.button.setAttribute('tabindex', '0')
 		this.input.type = 'hidden'
+		this.input.id = id
 
 		this.set()
 		this.create()
@@ -37,14 +40,18 @@ class MultiColumnSelect {
 		}
 
 		this.select.onmousedown = event => {
-			this.selected = event.target.dataset.index
-			this.set()
-			this.hide()
+			if (this.isShow()) {
+				this.selected = event.target.dataset.index
+				this.set()
+				this.hide()
+			}
 		}
 
 		this.button.onblur = event => {
-			this.changeSelected(this.selected, this.past_selected)
-			this.hide()
+			if (this.isShow()) {
+				this.changeSelected(this.selected, this.past_selected)
+				this.hide()
+			}
 		}
 
 		this.button.onkeydown = event => {

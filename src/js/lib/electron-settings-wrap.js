@@ -1,3 +1,4 @@
+'use strict';
 const Settings = require('electron-settings/lib/settings')
 const Helpers = require('electron-settings/lib/settings-helpers')
 

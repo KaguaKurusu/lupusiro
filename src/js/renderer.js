@@ -1,3 +1,4 @@
+'use strict';
 const electron = require('electron')
 const ipc = electron.ipcRenderer
 const languages = require('google-translate-api/languages')
@@ -31,7 +32,7 @@ search.onsubmit = event => {
 		ipc.send('query', str, lang, shows)
 	}
 
-	return event.preventDefault()
+	event.preventDefault()
 }
 
 closeResultWindows.onclick = event => {
@@ -85,15 +86,14 @@ function setLangSelect(lang) {
 
 		return values
 	})()
+	let toLangs = fromLangs.concat()
+	toLangs[0] = { value: 'none', text:  '翻訳しない'}
 
-	from = new MCS(fromLangSelect, fromLangs, {
+	from = new MCS(fromLangSelect, fromLangs, 'fromLang', {
 		default: index.from,
 		rows: numOfClumn
 	})
-
-	toLangs = fromLangs.concat()
-	toLangs[0] = { value: 'none', text:  '翻訳しない'}
-	to = new MCS(toLangSelect, toLangs, {
+	to = new MCS(toLangSelect, toLangs, 'toLang', {
 		default: index.to,
 		rows: numOfClumn
 	})

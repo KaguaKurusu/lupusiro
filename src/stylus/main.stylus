@@ -8,7 +8,7 @@ form-items-active = @block {
 
 @charset "UTF-8"
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700)
-@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css)
+@import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css)
 
 *
 	font-size 14px

@@ -1,3 +1,4 @@
+'use strict';
 const {BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
@@ -10,10 +11,8 @@ let aboutWindow = null
 function showAbutWindow(parentWindow) {
 	let bounds = parentWindow.getBounds()
 	let size = parentWindow.getSize()
-	let x = bounds.x + parseInt(size[0] / 2) - parseInt(width / 2)
-	let y = bounds.y + parseInt(size[1] / 2) - parseInt(height / 2)
-
-	console.log(`x: ${x}, y: ${y}`)
+	let x = bounds.x + parseInt((size[0] - width) / 2)
+	let y = bounds.y + parseInt((size[1] - height) / 2)
 
 	aboutWindow = new BrowserWindow({
 		width: width,
