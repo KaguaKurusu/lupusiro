@@ -60,6 +60,7 @@ typings/
 # tempolary directory
 public/
 release/
+icon/src/
 
 # macOS metadata file
 .DS_Store
