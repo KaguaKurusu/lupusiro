@@ -20,10 +20,6 @@ class SettingsWrap extends Settings {
 
 		return obj
 	}
-
-	_getDefault(keyPath) {
-		return this.defaultValues[keyPath]
-	}
 }
 
 module.exports = SettingsWrap
