@@ -33,7 +33,6 @@ let resultWindow = {
 
 app.on('ready', () => {
 	if (process.platform === 'darwin') {
-		// Menu.setApplicationMenu(menu)
 		menu.setAppMenu()
 	}
 
@@ -129,7 +128,6 @@ function createWindow() {
 	// const menu = new Menu(mainWindow, true)
 
 	if (process.platform !== 'darwin') {
-		// mainWindow.setMenu(menu)
 		menu.setMenu()
 	}
 

@@ -55,7 +55,7 @@ switch (command) {
 		copyPackageJson()
 		break
 	case 'image':
-		copy(path.join(dirs.src, '/img'), dirs.dist)
+		fs.copy(path.join(dirs.src, '/img'), dirs.dist)
 			.catch(err => console.error(err))
 		break
 	case 'patch':
@@ -82,9 +82,9 @@ switch (command) {
 }
 
 function buildStylus(config, file) {
-	readFile(file)
+	fs.readFile(file)
 		.then(stylus.bind(null, config))
-		.then(outputFile.bind(null, distPath('css', file)))
+		.then(fs.outputFile.bind(null, distPath('css', file)))
 		.catch(err => console.log(err))
 }
 
@@ -95,14 +95,14 @@ function buildPug(config, file) {
 		'app_ver': pkg.version,
 		'author': pkg.author
 	}, file)
-		.then(outputFile.bind(null, distPath('html', file)))
+		.then(fs.outputFile.bind(null, distPath('html', file)))
 		.catch(err => console.log(err))
 }
 
 function minifyJS(config, file) {
-	readFile(file)
+	fs.readFile(file)
 		.then(js.bind(null, config))
-		.then(outputFile.bind(null, distPath('js', file)))
+		.then(fs.outputFile.bind(null, distPath('js', file)))
 		.catch(err => console.log(err))
 }
 
@@ -115,7 +115,7 @@ function copyPackageJson() {
 	keys.forEach(key => {
 		data[key] = pkg[key]
 	})
-	outputJson(path.join(dirs.dist, 'package.json'), data)
+	fs.outputJson(path.join(dirs.dist, 'package.json'), data)
 		.then(installNodeModules.bind(null))
 		.then(data => console.log(data))
 		.catch(err => console.error(err))
@@ -134,9 +134,9 @@ function patchApplay() {
 	let src_path = 'node_modules/google-translate-api/languages.js'
 	let patch_path = 'patch/languages.patch'
 
-	Promise.all([readFile(src_path), readFile(patch_path)])
+	Promise.all([fs.readFile(src_path), fs.readFile(patch_path)])
 		.then(patch.bind(null))
-		.then(outputFile.bind(null, path.join(dirs.dist, src_path)))
+		.then(fs.outputFile.bind(null, path.join(dirs.dist, src_path)))
 		.catch(err => console.error(err))
 }
 
@@ -240,47 +240,11 @@ function startWatch() {
 	})
 }
 
-function readFile(path) {
-	return new Promise((resolve, reject) => {
-		fs.readFile(path, (err, data) => {
-			if (err) reject(err)
-			else resolve(data)
-		})
-	})
-}
-
 function fileList(pattern, option = {}) {
 	return new Promise((resolve, reject) => {
 		glob(pattern, option, (err, files) => {
 			if (err) reject(err)
 			else resolve(files)
-		})
-	})
-}
-
-function outputFile(file, data) {
-	return new Promise((resolve, reject) => {
-		fs.outputFile(file, data, err => {
-			if (err) reject(err)
-			else resolve()
-		})
-	})
-}
-
-function outputJson(file, data) {
-	return new Promise((resolve, reject) => {
-		fs.outputJson(file, data, {}, err => {
-			if (err) reject(err)
-			else resolve()
-		})
-	})
-}
-
-function copy(src, dist) {
-	return new Promise((resolve, reject) => {
-		fs.copy(src, dist, err => {
-			if (err) reject(err)
-			else resolve()
 		})
 	})
 }
