@@ -1,49 +1,15 @@
 'use strict';
-const {BrowserWindow} = require('electron')
-const path = require('path')
-const url = require('url')
+const {shell} = require('electron')
 
-const width = 280
-const height = 240
+let links = link.children
 
-let aboutWindow = null
+for (let i = 0; i < links.length; i++) {
+	if (links[i].tagName === 'A') {
+		links[i].onclick = event => {
+			let url = links[i].getAttribute('href')
+			shell.openExternal(url)
 
-function showAbutWindow(parentWindow) {
-	let bounds = parentWindow.getBounds()
-	let size = parentWindow.getSize()
-	let x = bounds.x + parseInt((size[0] - width) / 2)
-	let y = bounds.y + parseInt((size[1] - height) / 2)
-
-	aboutWindow = new BrowserWindow({
-		width: width,
-		height: height,
-		useContentSize: true,
-		x: x,
-		y: y,
-		parent: (() => {
-			if (process.platform === 'darwin') {
-				return null
-			}
-			else {
-				return parentWindow
-			}
-		})(),
-		modal: true,
-		show: false,
-		resizable: false,
-		maximizable: false
-	})
-
-	aboutWindow.once('ready-to-show', () => {
-		aboutWindow.show()
-	})
-
-	// and load the index.html of the app.
-	aboutWindow.loadURL(url.format({
-		pathname: path.join(__dirname, 'about.html'),
-		protocol: 'file:',
-		slashes: true
-	}))
+			return false
+		}
+	}
 }
-
-module.exports = showAbutWindow

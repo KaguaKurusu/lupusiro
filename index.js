@@ -93,7 +93,8 @@ function buildPug(config, file) {
 		// variable in Pug
 		'app_name': pkg.name,
 		'app_ver': pkg.version,
-		'author': pkg.author
+		'author': pkg.author,
+		'repository': pkg.repository
 	}, file)
 		.then(fs.outputFile.bind(null, distPath('html', file)))
 		.catch(err => console.log(err))

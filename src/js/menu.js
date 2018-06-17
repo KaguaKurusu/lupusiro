@@ -1,6 +1,6 @@
 'use strict';
 const {app, Menu} = require('electron')
-const about = require('./about')
+const about = require('./about-dialog')
 
 class menu {
 	constructor(win, isDebug) {

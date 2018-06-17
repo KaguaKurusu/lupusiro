@@ -1,3 +1,6 @@
+mixin link(href, name)
+	a(class!=attributes.class href=href)= name
+
 doctype html
 html(lang="ja")
 	head
@@ -13,6 +16,13 @@ html(lang="ja")
 		)
 	body
 		header
-			div#icon
-			h1 #{app_ver}
+			#icon
+			h2 #{app_ver}&nbsp;
+				script document.write(process.arch)
+			#link
+				+link(repository, 'リポジトリ')
+				+link(repository + '/blob/master/LICENSE', 'ライセンス')
+				+link(repository + '/releases/v' + app_ver, 'リリースノート')
+				+link("https://twitter.com/Kagua_CJ", '作者Twitter')
 		footer Copyright (c) 2018 #{author}
+		script(src="about.js")
